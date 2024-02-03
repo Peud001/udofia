@@ -1,0 +1,26 @@
+.container{
+    padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    color: #c0c0c0;
+}
+.title{
+    font-size: 2rem;
+    font-weight: 600;
+}
+@media (hover: hover){
+    .container:hover{
+       border: 1px solid #797878;
+       border-radius: 0 50px;
+    }
+}
+.imageAbout{
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.image{
+    border-radius: 50%;
+}

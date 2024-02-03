@@ -1,0 +1,60 @@
+.main{
+    background: #000;
+}
+.container{
+    min-height: calc(100vh - 140px);
+    max-width: var(--max-width);
+     display: flex;
+     justify-content: space-between;
+     margin: auto;
+     background: inherit;
+     padding: 20px;
+     align-items: center;
+}
+.homeContent{
+    color: #e0e0e0;
+    flex: 1;
+}
+.imgHome{
+    position: relative;
+    width: 480px;
+    height: 500px;
+    object-fit: cover;
+}
+.homeImage{
+    border-radius: 5px;
+}
+.homeName{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #C0C0C0;
+}
+.homeNameSpan1{
+    color: #06812C;
+}
+.homeDesc{
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 768px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+        max-width: none;
+        width: 100vw;
+        justify-content: space-evenly;
+    }
+    .homeContent{
+        flex : none
+    }
+    .imgHome{
+        width: 300px;
+        height: 320px;
+    } 
+    .homeName{
+      font-size: 2.5rem;
+      padding-bottom: 5px;
+ }
+}

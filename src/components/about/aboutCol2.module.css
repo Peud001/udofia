@@ -1,0 +1,48 @@
+.contentLinks {
+    display: flex;
+    margin: 20px 0 40px; 
+}
+
+.contentLink {
+    margin-right: 60px;
+    color: #c0c0c0;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+.activeLink::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background: #06812C;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.linkContents ul li{
+    list-style: none;
+    margin: 10px 0;
+    color: #c0c0c0;
+}
+.linkContents ul li span{
+    color: #06812C;
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+.linkContents ul{
+    display: none;
+}
+.linkContents .activeContent{
+    display: block;
+    color: #e5e5e5;
+    min-height: 300px;
+}
+.linkContents ul li span .spanSkills{
+    color: #2d2d42;
+    font-weight: 600;
+}
+@media (max-width: 768px){
+    .contentLink{}
+}
