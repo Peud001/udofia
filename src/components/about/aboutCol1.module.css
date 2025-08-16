@@ -10,6 +10,9 @@
     font-size: 2rem;
     font-weight: 600;
 }
+.txt{
+    font-size: 0.8rem;
+}
 @media (hover: hover){
     .container:hover{
        border: 1px solid #797878;

@@ -7,41 +7,35 @@ import { getClassName } from '../hooks/bgColor/background'
 import ThemeSwitch from '../themeswitch/ThemeSwitch'
 
 type linksType = {
-    title : string
-    path : string
+    title: string
+    path: string
 }
 
 const Navbar = () => {
+  const pathname = usePathname()
+  const [isMenu, setIsMenu] = useState<boolean>(false)
 
-    const pathname = usePathname()
+  const links: linksType[] = [
+    { title: "Home", path: "/" },
+    { title: "About", path: "/about" },
+    { title: "Projects", path: "/project" },
+    { title: "Contact", path: "/contact" },
+  ]
 
-   
-
-    const links: linksType[] = [
-      { title: "Home", path: "/" },
-      { title: "About", path: "/about" },
-      { title: "Projects", path: "/project" },
-      { title: "Contact", path: "/contact" },
-    ];
-
-    const [isMenu, setIsMenu] = useState<boolean>(false)
-
-
-    const handleClick = () => {
-      setIsMenu(prev => !prev)
-    }
+  const handleClick = () => {
+    setIsMenu(prev => !prev)
+  }
 
   return (
-    <main className={`${styles.main} ${getClassName(pathname)} `}>
+    <nav className={`${styles.main} ${getClassName(pathname)}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <span className={styles.logoSpan}>U</span>dofia
         </div>
         <div className={styles.links}>
-          {links.map((link: linksType, i: number) => (
+          {links.map((link, i) => (
             <Navlinks key={i} item={link} />
           ))}
-          <ThemeSwitch />
         </div>
         <div className={styles.menuBtn}>
           <button className={styles.menu} onClick={handleClick}>
@@ -50,14 +44,14 @@ const Navbar = () => {
         </div>
         {isMenu && (
           <div className={`${styles.mobileLinks} ${getClassName(pathname)}`}>
-            <ThemeSwitch />
-            {links.map((link: linksType, i: number) => (
+            {links.map((link, i) => (
               <Navlinks key={i} item={link} onClick={handleClick} />
             ))}
           </div>
         )}
       </div>
-    </main>
-  );
+    </nav>
+  )
 }
+
 export default Navbar

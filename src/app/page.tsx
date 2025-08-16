@@ -1,25 +1,36 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
+      <section className={styles.container}>
         <div className={styles.homeContent}>
-          <p className={styles.homeName}>Hello!</p>
-          <p className={styles.homeName}>
-            I am Solomon <span className={styles.homeNameSpan1}>U</span>dofia,
-          </p>
+          <h1 className={styles.homeName}>
+            Hello! I am Solomon{" "}
+            <span className={styles.homeNameSpan}>U</span>dofia
+          </h1>
           <p className={styles.homeDesc}>
-            a skilled front-end web developer. Explore my world, and feel free
-            to connect, if you have an exciting opportunity.
+          A Business Solutions Developer with over 5 years of SME-focused innovation. Explore my world, and feel free to{" "}
+            <Link href="/contact" className={styles.ctaLink}>
+              connect
+            </Link>{" "}
+            if you have an exciting opportunity.
           </p>
         </div>
         <div className={styles.imgHome}>
-          <Image src="/my-image.jpg" alt="" fill className={styles.homeImage} />
+          <Image
+            src="/my-image.jpg"
+            alt="Portrait of Solomon Udofia"
+            fill
+            sizes="(max-width: 768px) 300px, 480px"
+            className={styles.homeImage}
+            priority
+          />
         </div>
-      </div>
+      </section>
     </main>
   );
 }

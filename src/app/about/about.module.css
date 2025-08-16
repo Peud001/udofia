@@ -5,11 +5,9 @@
 .container {
     background: inherit;
     color: #C0C0C0;
-    min-height: calc(100vh - 140px);
     max-width: var(--max-width);
     display: flex;
     margin: auto;
-    padding: 20px;
     gap: 40px;
     align-items: center;
 }
@@ -31,6 +29,7 @@
         justify-content: space-around;
         max-width: none;
         width: 100%;
+        margin: 20px;
     }
     .content {
         margin-top: 20px;

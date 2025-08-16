@@ -1,26 +1,32 @@
+"use client"
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './navlinks.module.css'
+import { usePathname } from 'next/navigation'
 
 type linksType = {
-    title : string
-    path : string
+    title: string
+    path: string
 }
 
 interface itemType {
-  item: linksType;
-  onClick?: () => void;
+  item: linksType
+  onClick?: () => void
 }
 
-const Navlinks: React.FC<itemType> = ({item, onClick}) => {
+const Navlinks: React.FC<itemType> = ({ item, onClick }) => {
+  const pathname = usePathname()
+  const isActive = pathname === item.path
 
-  const handleClick = () => {
-    if (onClick){
-      onClick()
-    }
-  }
-
-  return <Link href={item.path} onClick={handleClick}>{item.title}</Link>;
+  return (
+    <Link 
+      href={item.path} 
+      onClick={onClick}
+      className={`${styles.link} ${isActive ? styles.active : ''}`}
+    >
+      {item.title}
+    </Link>
+  )
 }
 
 export default Navlinks

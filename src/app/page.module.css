@@ -1,60 +1,111 @@
-.main{
-    background: #000;
-}
-.container{
-    min-height: calc(100vh - 140px);
-    max-width: var(--max-width);
-     display: flex;
-     justify-content: space-between;
-     margin: auto;
-     background: inherit;
-     padding: 20px;
-     align-items: center;
-}
-.homeContent{
-    color: #e0e0e0;
-    flex: 1;
-}
-.imgHome{
-    position: relative;
-    width: 480px;
-    height: 500px;
-    object-fit: cover;
-}
-.homeImage{
-    border-radius: 5px;
-}
-.homeName{
-    font-size: 3rem;
-    font-weight: 600;
-    color: #C0C0C0;
-}
-.homeNameSpan1{
-    color: #06812C;
-}
-.homeDesc{
-    line-height: 1.2rem;
-    font-size: 1.2rem;
+.main {
+  background: #000;
+  color: #e6e6e6;
+  height: 100vh; 
+  display: flex;
+  flex:2;
+  flex-direction: column;
 }
 
+.container {
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  /* padding: clamp(1rem, 3vw, 2rem); */
+  background: inherit;
+}
 
-@media (max-width: 768px){
-    .container{
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-        width: 100vw;
-        justify-content: space-evenly;
-    }
-    .homeContent{
-        flex : none
-    }
-    .imgHome{
-        width: 300px;
-        height: 320px;
-    } 
-    .homeName{
-      font-size: 2.5rem;
-      padding-bottom: 5px;
- }
+.homeContent {
+  flex: 1;
+  max-width: 50%;
+  animation: fadeIn 1s ease-out;
+}
+
+.homeName {
+  font-size: clamp(1.8rem, 4vw, 2.2rem); /* Reduced slightly to fit better */
+  font-weight: 600;
+  color: #d1d1d1;
+  margin: 0 0 0.5rem 0;
+}
+
+.homeNameSpan {
+  color: #2e7d32  ;
+  transition: transform 0.3s ease;
+}
+
+.homeNameSpan:hover {
+  transform: scale(1.1);
+  display: inline-block;
+}
+
+.homeDesc {
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Slightly smaller for better fit */
+  line-height: 1.6; /* Adjusted for readability */
+  color: #e6e6e6;
+  margin: 0;
+}
+
+.ctaLink {
+  color: #0aa13e;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.ctaLink:hover {
+  color: #0aa13e;
+  text-decoration: underline;
+}
+
+.imgHome {
+  position: relative;
+  width: clamp(250px, 35vw, 400px); /* Reduced to fit viewport */
+  height: clamp(270px, 40vw, 420px); /* Adjusted to maintain aspect ratio */
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.homeImage {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  .homeContent {
+    max-width: 90%; /* Slightly less than 100% to avoid edge overflow */
+    text-align: center;
+  }
+
+  .imgHome {
+    width: clamp(200px, 70vw, 280px); /* Smaller for mobile */
+    height: clamp(220px, 70vw, 300px);
+  }
+
+  .homeName {
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem); /* Adjusted for mobile */
+  }
+
+  .homeDesc {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
 }

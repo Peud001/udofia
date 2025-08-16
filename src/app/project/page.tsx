@@ -1,31 +1,34 @@
-"use client"
-import styles from './project.module.css'
-import { works } from '@/components/work/work';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import {FaGithub, FaGlobe, FaAngleDoubleLeft} from 'react-icons/fa'
+"use client";
+import styles from "./project.module.css"; // Ensure double quotes for module import
+import { works } from "@/components/work/work";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { FaGithub, FaGlobe, FaAngleDoubleLeft } from "react-icons/fa";
 
 type workType = {
-    path: string;
-    title: string;
-    stacks: string[];
-    description: string;
-    features: string[];
-    website: string;
-    github: string;
-}
+  path: string;
+  title: string;
+  stacks: string[];
+  description: string;
+  features: string[];
+  website: string;
+  github: string;
+};
 
 const Project = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [data, setData] = useState<workType | undefined>(undefined);
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [data, setData] = useState<workType | undefined>(undefined)
-
-  const handleClick = (
-    item: workType
-  ) => {
+  const handleClick = (item: workType) => {
     setIsOpen((prev) => !prev);
     setData(item);
+  };
+
+  // Function to truncate description for overlay
+  const truncateDescription = (desc: string, maxLength: number = 60) => {
+    if (desc.length <= maxLength) return desc;
+    return desc.substring(0, maxLength) + "...";
   };
 
   return (
@@ -33,16 +36,32 @@ const Project = () => {
       <div className={`${styles.container} ${isOpen && styles.opacity}`}>
         <div className={styles.images}>
           {works.map((work, i) => (
-            <div key={i}>
+            <div key={i} className={styles.imageWrapper}>
               <div className={styles.imageContainer}>
                 <Image
                   src={work.path}
-                  alt=""
+                  alt={work.title}
                   fill
                   className={styles.img}
                   priority
                   onClick={() => handleClick(work)}
                 />
+                {/* Permanent overlay with catchy info */}
+                <div className={styles.overlay}>
+                  <div className={styles.overlayContent}>
+                    <h3 className={styles.overlayTitle}>{work.title}</h3>
+                    <p className={styles.overlayDesc}>
+                      {truncateDescription(work.description)}
+                    </p>
+                    <ul className={styles.overlayStacks}>
+                      {work.stacks.slice(0, 3).map((stack, index) => (
+                        <li key={index} className={styles.overlayStackItem}>
+                          {stack}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -63,7 +82,7 @@ const Project = () => {
                 <div className={styles.imageContainer}>
                   <Image
                     src={data.path}
-                    alt=""
+                    alt={data.title}
                     fill
                     priority
                     className={styles.img}
@@ -97,14 +116,22 @@ const Project = () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className={styles.links}>
                   <p>
-                    <Link href="#" target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={data.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaGithub /> <span>View Code</span>
                     </Link>
                   </p>
                   <p>
-                    <Link href="#" target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={data.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaGlobe /> <span>View Website</span>
                     </Link>
                   </p>
@@ -116,6 +143,6 @@ const Project = () => {
       </div>
     </main>
   );
-}
+};
 
-export default Project
+export default Project;

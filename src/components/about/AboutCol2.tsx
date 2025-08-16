@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import styles from "./aboutCol2.module.css"
+import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
 
 const AboutCol2 = () => {
   const [active, setActive] = useState<string>("Skills");
@@ -41,64 +42,61 @@ const AboutCol2 = () => {
         <ul className={`${active === "Skills" ? styles.activeContent : ""}`}>
           <li>
             <span>
-              React JavaScript/TypeScript {""}
-              <span className={styles.spanSkills}>|</span> HTML/CSS {""}
-              <span className={styles.spanSkills}>|</span> Bootstrap
+            Programming Languages{""}
             </span>
             <br />
-            Building dynamic and responsive web applications with a modern and
-            user-friendly interface.
+            <span></span> PHP {""}
+              <span className={styles.spanSkills}>|</span> JavaScript {""}
+              <span className={styles.spanSkills}>|</span> TypeScript 
           </li>
           <li>
-            <span>Next JS</span>
+            <span>Development Frameworks & Libraries</span>
             <br />
-            Buildig server-side rendered and highli scalable web applications
-            with improved SEO.
+            <span></span> React Native / React JS {""}
+              <span className={styles.spanSkills}>|</span> Next.js {""}
+              <span className={styles.spanSkills}>|</span> Redux {""}
+              <span className={styles.spanSkills}>|</span> Tailwind CSS
           </li>
           <li>
             <span>
-              Mongo DB {""}
-              <span className={styles.spanSkills}>|</span> PostgreSQL{" "}
-              <span className={styles.spanSkills}>|</span> Firebase
+            Database Management{""}
             </span>
+            <br/>
+              <span className={styles.spanSkills}></span> MySQL{" "}
+              <span className={styles.spanSkills}>|</span> MongoDB{" "}
             <br />
-            Databases
           </li>
           <li>
-            <span>GIT/GITHUB</span>
+            <span>Version Control & Collaboration</span>
             <br />
-            Version control
+            Git / GitHub
           </li>
         </ul>
         <ul
           className={`${active === "Experience" ? styles.activeContent : ""}`}
         >
           <li>
-            <span>Dowel</span>
+            <span> Business Development Specialist | DoWell Research (UX Living Lab)</span>
             <br />
-            Description
+           <span className="styles.spanSkills"> <VscDebugBreakpointLogUnverified /></span> Designed tailored business and digital solutions to address operational challenges faced by small and medium
+           sized enterprises, focusing on improving efficiency, sales performance, and customer engagement.{" "}
           </li>
           <li>
-            <span>React</span>
+            <span>Sales Executive | 525 Systems </span>
             <br />
-            Description
+            <span className="styles.spanSkills"> <VscDebugBreakpointLogUnverified /></span>Managed a portfolio of B2B and B2C clients, identifying customer needs and recommending tailored IT and eCommerce solutions. 
           </li>
           <li>
-            <span>React</span>
+            <span>Team Lead | Clapify </span>
             <br />
-            Description
+            <span className="styles.spanSkills"> <VscDebugBreakpointLogUnverified /></span>Managed the full development cycle of a cross-platform loyalty program app, from feature planning and technical documentation to launch.
           </li>
         </ul>
         <ul className={`${active === "Education" ? styles.activeContent : ""}`}>
           <li>
-            <span>Unical</span>
+            <span>University of Calabar, Nigeria</span>
             <br />
-            Description
-          </li>
-          <li>
-            <span>React</span>
-            <br />
-            Description
+            B.Sc. Mathematics and Statistics (04.2022)
           </li>
         </ul>
       </div>

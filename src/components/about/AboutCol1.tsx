@@ -9,16 +9,8 @@ const AboutCol1 = () => {
       <div className={styles.imageAbout}>
         <Image src="/my-img.jpg" alt="" fill className={styles.image} />
       </div>
-      <p>
-        Certainly! Here's another variation for a bit of diversity: "Hello! I'm
-        excited that you're interested in connecting. Please use the form below
-        to send me a message. If you have other preferred methods, don't
-        hesitate to reach out through the social icons located in the footer."
-      </p>
-      <p>
-        Certainly! Here's another variation for a bit of diversity: "Hello! I'm
-        excited that you're interested in connecting. Please use the form below
-        to send me a message. If you have other preferred methods, don't
+      <p className='txt'>
+      A dedicated Business Solutions Developer with over five years of experience creating innovative digital solutions tailored for small and medium-scale enterprises. Proficient in React, React Native, TypeScript, and PHP, I have delivered impactful projects, including a customer engagement platform that boosted user interaction by 20%, empowering SMEs with scalable tools to enhance their operations. Passionate about driving business growth through client-centric strategies, I thrive in collaborative environments where technical expertise meets market demands. 
       </p>
     </div>
   );

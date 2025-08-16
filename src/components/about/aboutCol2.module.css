@@ -24,9 +24,10 @@
     list-style: none;
     margin: 10px 0;
     color: #c0c0c0;
+    font-size: 1rem;
 }
 .linkContents ul li span{
-    color: #06812C;
+    color: #2e7d32; 
     font-size: 0.9rem;
     padding-bottom: 20px;
     font-weight: 600;
@@ -39,7 +40,7 @@
     color: #e5e5e5;
     min-height: 300px;
 }
-.linkContents ul li span .spanSkills{
+.linkContents ul li .spanSkills{
     color: #2d2d42;
     font-weight: 600;
 }
