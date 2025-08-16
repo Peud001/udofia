@@ -8,7 +8,7 @@ const Contact = () => {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <p>Hello!</p>
-          <p>I'm excited that you're interested in connecting.</p>
+          <p>I&apos;m excited that you&apos;re interested in connecting.</p>
           <p>
             Please use the form to send me a message. If you prefer
             alternative methods, feel free to reach out via the social icons in
